@@ -44,16 +44,16 @@ def bfs(graph, start):
         방문 순서 리스트
     """
 
-    visited = [start]
+    visited = {start}
     queue = deque([start]) # start로 시작하는 queue
 
     while queue:
         current = queue.popleft()
         for node in graph.get(current, []):
             if node not in visited:
-                visited.append(node)
+                visited.add(node)
                 queue.append(node)
-    return visited
+    return list(visited)
 
 # 테스트 케이스
 if __name__ == "__main__":

@@ -43,15 +43,15 @@ def dfs(graph, start, visited=None):
         방문 순서 리스트
     """
     if visited is None:
-        visited = []
+        visited = set()
 
-    visited.append(start)
+    visited.add(start)
 
     for node in graph.get(start, []):
         if node not in visited:
             dfs(graph, node, visited)
 
-    return visited
+    return list(visited)
 
 # 테스트 케이스
 if __name__ == "__main__":
